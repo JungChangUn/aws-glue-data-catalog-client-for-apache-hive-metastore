@@ -16,6 +16,22 @@ import com.amazonaws.services.glue.model.EntityNotFoundException;
 import com.amazonaws.services.glue.model.GetDatabaseRequest;
 import com.amazonaws.services.glue.model.GetUserDefinedFunctionsRequest;
 import com.amazonaws.services.glue.model.Partition;
+
+import org.apache.hadoop.hive.metastore.api.PartitionEventType;
+import org.apache.hadoop.hive.metastore.api.PartitionValuesRequest;
+import org.apache.hadoop.hive.metastore.api.PartitionValuesResponse;
+import org.apache.hadoop.hive.metastore.api.PrimaryKeysRequest;
+import org.apache.hadoop.hive.metastore.api.PrincipalPrivilegeSet;
+import org.apache.hadoop.hive.metastore.api.PrincipalType;
+import org.apache.hadoop.hive.metastore.api.PrivilegeBag;
+import org.apache.hadoop.hive.metastore.api.Role;
+import org.apache.hadoop.hive.metastore.api.SQLForeignKey;
+import org.apache.hadoop.hive.metastore.api.SQLPrimaryKey;
+import org.apache.hadoop.hive.metastore.api.SetPartitionsStatsRequest;
+import org.apache.hadoop.hive.metastore.api.ShowCompactResponse;
+import org.apache.hadoop.hive.metastore.api.ShowLocksRequest;
+import org.apache.hadoop.hive.metastore.api.ShowLocksResponse;
+
 import com.amazonaws.services.glue.model.Table;
 import com.amazonaws.services.glue.model.UpdatePartitionRequest;
 import com.amazonaws.services.glue.model.UserDefinedFunction;
@@ -1248,6 +1264,11 @@ public class AWSCatalogMetastoreClient implements IMetaStoreClient {
                                          List<String> values, short max)
         throws MetaException, TException, NoSuchObjectException {
     return glueMetastoreClientDelegate.listPartitionNames(databaseName, tableName, values, max);
+  }
+
+  @Override
+  public PartitionValuesResponse listPartitionValues(PartitionValuesRequest partitionValuesRequest) throws TException {
+    throw new UnsupportedOperationException("listPartitionValues is not yet supported");
   }
 
   @Override

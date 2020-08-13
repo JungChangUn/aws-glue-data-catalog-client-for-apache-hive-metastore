@@ -5,6 +5,7 @@ import org.apache.hadoop.hive.metastore.HiveMetaHookLoader;
 import org.apache.hadoop.hive.metastore.IMetaStoreClient;
 import org.apache.hadoop.hive.metastore.api.MetaException;
 import org.apache.hadoop.hive.ql.metadata.HiveMetaStoreClientFactory;
+// import org.apache.hadoop.hive.ql.security.authorization.plugin.HiveMetastoreClientFactory;
 
 public class AWSGlueDataCatalogHiveClientFactory implements HiveMetaStoreClientFactory {
 
